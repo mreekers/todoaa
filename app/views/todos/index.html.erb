@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Todos Index</title>
+</head>
+<body>
+	<h1><%= @author.name %></h1>
+	<% @todos.each do |todo| %>
+
+ 	   <div>
+    	    Description: <%= todo.description %>
+       </div>
+
+	<% end %>
+
+	<%= form_for :todo, url: "/authors/#{@author.id}/todos", method: "post" do |f| %>
+
+    <%= f.text_field :description %>
+    <%= f.submit "save todo" %>
+
+	<% end %>x
+</body>
+</html>

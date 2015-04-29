@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Author Index</title>
+</head>
+<body>
+	<% @authors.each do |author| %>
+
+ 	   <div>
+    	    Name: <a href="/authors/<%= author.id %>"><%= author.name %></a> 
+       </div>
+
+	<% end %>
+
+	<%= form_for :author, url: "/authors", method: "post" do |f| %>
+
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :password %><br>
+    <%= f.password_field :password %><br>
+
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %><br>
+
+    <%= f.submit "Signup" %>
+
+	<% end %>
+
+
+</body>
+</html>
